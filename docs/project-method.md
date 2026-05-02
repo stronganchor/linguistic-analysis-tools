@@ -27,6 +27,26 @@ the final decision was not purely numerical. A model that made reviewable,
 consistent mistakes could be more useful than a model with a slightly better
 score but harder-to-diagnose behavior.
 
+## Website Data And Review Layer
+
+Language Learner Tools was the operational layer around this loop. The recorder
+UI collected audio inside a wordset/category/recording-type structure, with
+speaker metadata attached from the beginning. The export tools produced STT
+training bundles with `metadata.csv`, `metadata.jsonl`, and audio files. Local
+scripts in this repository trained models, generated predictions, and built
+metadata update files. LL Tools then imported accepted changes back into the
+site, usually marking imported IPA changes as needing Transcription Manager
+review.
+
+That website loop mattered because the model work was never detached from the
+review surface. Reviewers could search IPA or orthography, filter to rows that
+still needed review, use an IPA helper keyboard, inspect known-rule failures,
+convert IPA to orthography after checking rules, and keep corrected data tied to
+the same stable recording IDs used in later exports.
+
+See [ll-tools-integration.md](ll-tools-integration.md) for a summary of the LL
+Tools recorder, transcription manager, import/export, and automation surfaces.
+
 ## Phase 2: Train Multiple Useful Witnesses
 
 After the first IPA models became useful, the project expanded beyond one

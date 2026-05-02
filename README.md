@@ -73,6 +73,8 @@ WordPress plugin. LL Tools provided structured audio collection, recording
 types, speaker metadata, IPA and orthography fields, export/import bundles, and
 review workflows on the website.
 
+Public plugin repository: <https://github.com/stronganchor/language-learner-tools>
+
 This repository does not include the full WordPress plugin. It documents the
 integration points and keeps the reusable research-side scripts that consumed or
 produced LL Tools-compatible data.
