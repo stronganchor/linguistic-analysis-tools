@@ -1,0 +1,26 @@
+{
+  "bundle_files": [
+    "ll-tools-stt-training-genc-palu-recording_text-20260409-071931.zip"
+  ],
+  "total_rows_seen": 2144,
+  "rows_kept": 2112,
+  "excluded_speaker_filter": 4,
+  "excluded_review_flags": 6,
+  "excluded_missing_audio_path": 0,
+  "excluded_missing_audio_file": 0,
+  "manual_blacklist_recording": 6,
+  "manual_blacklist_word": 0,
+  "manual_blacklist_word_title": 0,
+  "unexpected_orthography_symbol": 13,
+  "empty_recording_text": 0,
+  "excluded_target_chars": 3,
+  "train_examples": 1711,
+  "eval_examples": 401,
+  "review_flags_source": "$Z_WORKSPACE/zazacaogren/orthography-text-fill-april-2026/genc-palu-recording-text-orthography-import-recording-text-only.review_flags.jsonl",
+  "orthography_import_source": "$Z_WORKSPACE/zazacaogren/orthography-text-fill-april-2026/genc-palu-recording-text-orthography-import-recording-text-only.jsonl",
+  "blacklist_path": "$Z_WORKSPACE/Speech to Text IPA/training_blacklists/genc-palu-manual-training-blacklist.json",
+  "lowercase_targets": true,
+  "strip_sentence_punctuation": true,
+  "map_a_circumflex_to_e": true,
+  "excluded_target_characters": "ü"
+}

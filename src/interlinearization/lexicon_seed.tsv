@@ -1,0 +1,255 @@
+form	lemma	gloss_en	gloss_tr	pos	confidence	source	note
+ez	ez	1SG.DIR	ben	PRON	0.98	user_morphology	direct case first person singular pronoun; avoid subject/object labels because Zazaki is split-ergative
+e	ez	1SG.DIR	ben	PRON	0.94	user_morphology	shortened/devoiced form of ez in A.K. speech
+ezo	ezo	1SG.DIR-COP	benim/benim!	PRON+COP	0.88	user_morphology	provisional analysis of dictionary I am form as ez plus copular element
+izı	ez	1SG.DIR-also	ben de	PRON	0.9	user_morphology	first person direct pronoun plus also clitic
+izik	ez	1SG.DIR-also	ben de	PRON	0.88	user_morphology	first person direct pronoun plus also clitic
+ma	ma	1PL.DIR	biz	PRON	0.96	user_morphology	direct case first person plural pronoun
+mı	mı	1SG.OBL	benim/bana	PRON	0.96	user_morphology	oblique first person singular pronoun
+tı	tı	2SG.DIR	sen	PRON	0.96	user_morphology	direct case second person singular pronoun
+ya	ya	2SG.F.DIR	sen.F	PRON	0.9	user_morphology	second person singular feminine direct pronoun
+şımar	şıma	2PL.OBL	size	PRON	0.78	user_morphology	second person plural oblique form; needs speaker review
+tpe	tpı	2SG.OBL	sana/seni	PRON	0.86	user_morphology	A.K. second person oblique form; orthographic shape needs review
+tpı	tpı	2SG.OBL	sana/seni	PRON	0.86	user_morphology	A.K. second person oblique form; orthographic variant of tpe
+tpıda	tpı-da	2SG.OBL-LOC	seninle	PRON+CASE	0.84	user_morphology	second person oblique plus locative -da
+xwe	xwe	REFL	kendi	PRON	0.96	user_morphology	reflexive pronoun
+xwı	xwe	REFL	kendi	PRON	0.92	user_morphology	orthographic variant of reflexive pronoun
+xwa	xwe	REFL	kendi	PRON	0.9	user_morphology	orthographic variant of reflexive pronoun
+cı	cı	3SG.OBL	ona	PRON	0.88	user_morphology	clitic third person oblique pronoun
+o	o	3M.SG	o/onu	PRON	0.86	user_morphology	standalone third person masculine singular pronoun; distinct from suffixal/copular -o
+ey	ey	3SG.OBL	o/onu/ona	PRON	0.78	user_morphology	third person oblique pronoun; needs speaker review
+êy	ey	3SG.OBL	o/onu/ona	PRON	0.78	user_morphology	raised/spelled form of third person oblique pronoun; needs speaker review
+êy la	êy la	for that reason		PHRASE	0.94	user_morphology	User note: êy la means for that reason
+êla	êy la	for that reason		PART	0.9	user_morphology	One-word variant of êy la; uncertain whether y should be written
+yin	yin	3PL.OBL/POSS	onlar/onların	PRON	0.86	user_morphology	third person plural oblique or possessive pronoun
+yiniz	yin	3PL.OBL/POSS-also	onlar da	PRON	0.82	user_morphology	third person plural oblique or possessive pronoun plus also clitic
+yê	yê	3SG.POSS	onun	PRON	0.84	user_morphology	third person singular possessive pronoun
+yinda	yin	3PL.OBL-LOC	onlarda	PRON	0.8	user_morphology	third person plural oblique plus locative; needs review
+da	da	in/at/on	-da/-de	CASE	0.88	user_morphology	standalone locative particle
+ra	ra	from/by	-den/-dan	POST	0.96	first_pass_seed	postposition/case particle
+pê	pê	with/by	ile	POST	0.94	first_pass_seed	postposition
+vêr	vêr	toward/in front of	önüne	POST	0.9	first_pass_seed	postposition
+lewê	lewê	edge/side	kenarında	N	0.84	first_pass_seed	story context
+werte	werte	middle/inside	orta/iç	N	0.84	first_pass_seed	story context
+zerre	zerre	inside	içeri	N	0.86	first_pass_seed	story context
+selê	sel	basket-EZ		N	0.94	user_morphology	User note: -ê is EZ here
+teber	teber	outside	dışarı	N	0.84	first_pass_seed	story context
+ho	ho	PROG.1SG/3M.SG	şimdiki süreç	PART	0.92	user_morphology	progressive/present actuality particle; 1sg or 3sg masculine
+ha	ha	PROG.2F.SG/3F.SG	şimdiki süreç	PART	0.92	user_morphology	progressive/present actuality particle; 2sg feminine or 3sg feminine
+hê	hê	PROG.2M.SG/PL	şimdiki süreç	PART	0.9	user_morphology	progressive/present actuality particle; 2sg masculine or plural
+û	û	and	ve	CONJ	0.98	first_pass_seed	conjunction
+la	la	but/then	ama	PART	0.84	first_pass_seed	discourse particle
+tamûm	tamûm	ok/all right	tamam	INTJ	0.95	first_pass_seed	Turkish loan/common discourse
+şıkır	şıkır	thanks	şükür	INTJ	0.92	first_pass_seed	common expression
+nyê	nyê	no	hayır	INTJ	0.96	first_pass_seed	negative answer
+nyû	nyû	or	yoksa	PART	0.9	user_morphology	or, as in Turkish yoksa
+nyû nyê	nyû nyê	or not	yoksa değil mi	PHRASE	0.96	user_morphology	fixed expression meaning or not
+nyûn	nyê	no/not	hayır/değil	PART	0.7	first_pass_seed	needs review
+nina	ameyış	NEG-come-IPFV-2F.SG		V	0.94	user_morphology	negative of yena; n-i-n-a, with -a as 2sg feminine here
+nino	ameyış	NEG-come-IPFV-1SG		V	0.94	user_morphology	negative of yen/yena; n-i-n-o, with -o as 1sg here
+nino.	ameyış	NEG-come-IPFV-1SG		V	0.94	user_morphology	tokenizer normally strips punctuation
+niyo	niyo	COP.NEG	değil	COP	0.88	user_morphology	negative copula
+nyo	niyo	COP.NEG	değil	COP	0.88	user_morphology	orthographic variant of negative copula
+nişken	nişken	cannot	yapamıyor	V	0.88	first_pass_seed	common modal
+nişkeno	nişken	cannot	yapamıyor	V	0.86	first_pass_seed	common modal
+çinyû	çine	not present/there is none	yok	EXIST	0.9	first_pass_seed	common existential
+çiniyû	çine	not present/there is none	yok	EXIST	0.9	first_pass_seed	common existential
+nêysen	nêysen	does not see	görmüyor	V	0.84	first_pass_seed	story context
+yo	yo	one/a	bir	DET	0.96	first_pass_seed	determiner
+yawo	ya	2SG.F.DIR-and	sen.F ve	PRON+CONJ	0.86	user_morphology	ya + -wo; w-buffered cliticized conjunction from o/û
+yona	yona	another/other	başka	DET	0.82	first_pass_seed	story context
+iz	ez-iz	1SG.DIR-also		PRON+CL	0.94	user_morphology	Fused form of ez plus the -iz also suffix
+ına	ına	PROX.F.SG	bu.F	DEM	0.94	user_morphology	proximal singular feminine demonstrative
+ina	ına	PROX.F.SG	bu.F	DEM	0.94	user_morphology	proximal singular feminine demonstrative
+in	ına	PROX	bu	DEM	0.9	first_pass_seed	demonstrative
+ın	ın	PROX.M.SG	bu.M	DEM	0.92	user_morphology	proximal singular masculine demonstrative
+ikê	ikê	now	şimdi	PART	0.94	user_morphology	User note: now; other dialects include nıka, inki, iki, inkê
+nû	nû	now/then	şimdi	PART	0.78	first_pass_seed	story context
+hin	hin	at this point	artık	PART	0.9	user_morphology	Turkish artık-like particle; possible English renderings include anymore, at this point, by this time
+kûm	kûm	who	kim	PRON	0.9	first_pass_seed	interrogative
+piyor	piyor	all	hepsi	ADV	0.94	user_morphology	all; sometimes spelled pior or pyor
+rwêc	rwêc	day	gün	N	0.84	first_pass_seed	story context
+rwec	rwêc	day	gün	N	0.84	first_pass_seed	orthographic variant
+kerg	kerg	hen/chicken	tavuk	N	0.98	first_pass_seed	dictionary-confirmed story noun
+kerga	kerg	hen/chicken	tavuk	N	0.95	first_pass_seed	oblique/feminine story form
+kergê	kerg	hen/chicken	tavuk	N	0.92	first_pass_seed	oblique story form
+kergo	kerg	hen/chicken-and		N+CONJ	0.94	user_morphology	kerg plus -o conjunction 'and'
+kergiz	kerg	hen/chicken also	tavuk da	N	0.88	first_pass_seed	cliticized story form
+werdek	werdek	duck	ördek	N	0.98	first_pass_seed	dictionary-confirmed story noun
+qaz	qaz	goose	kaz	N	0.98	first_pass_seed	dictionary-confirmed story noun
+qazı	qaz	goose	kaz	N	0.9	first_pass_seed	oblique story form
+qazê	qaz	goose-EZ	kaz	N	0.94	user_morphology	goose plus normal ezafe -ê; not a raised-vowel analysis
+qaziz	qaz	goose also	kaz da	N	0.86	first_pass_seed	cliticized story form
+pısing	pısing	cat	kedi	N	0.94	first_pass_seed	story noun
+pısingiz	pısing	cat also	kedi de	N	0.86	first_pass_seed	cliticized story form
+xwaz	xoz	pig	domuz	N	0.9	first_pass_seed	Palu story form close to dictionary xoz/xuez
+xwaziz	xoz	pig also	domuz da	N	0.84	first_pass_seed	cliticized story form
+merre	merre	mouse	fare	N	0.98	first_pass_seed	dictionary-confirmed story noun
+merro	merre	mouse	fare	N	0.9	first_pass_seed	story form
+mwerdê	mwerd	husband	koca/eş	N	0.86	first_pass_seed	story context
+cinyek	cinyek	woman	kadın	N	0.96	first_pass_seed	dictionary-confirmed story noun
+cinyekê	cinyek	woman	kadın	N	0.9	first_pass_seed	oblique story form
+kiye	kiye	house		N	0.84	user_morphology	House; base spelling uncertain, possible kye/kyê/kiye/kiyê
+kiyê	kiye	house		N	0.9	user_morphology	House; base spelling uncertain, possible kye/kyê/kiye/kiyê
+kye	kiye	house		N	0.78	user_morphology	Possible house-base spelling variant
+kyê	kiye	house		N	0.78	user_morphology	Possible house-base spelling variant
+ûmbaz	ûmbaz	friend	arkadaş	N	0.92	first_pass_seed	story noun
+ûmbazê	ûmbaz	friend	arkadaş	N	0.88	first_pass_seed	oblique/possessive story form
+mısafir	mısafir	guest	misafir	N	0.96	first_pass_seed	common loan
+mısafiriz	mısafir	guest also	misafir de	N	0.86	first_pass_seed	cliticized story form
+dêçi	dêçi	thing/object	şey/nesne	N	0.78	first_pass_seed	needs review
+meselê	mesel	story	hikaye	N	0.92	first_pass_seed	dictionary-confirmed story noun
+gwerıng	gwering	time/instance		N	0.94	user_morphology	User note: time as in instance; ına gwerıng means this time
+ına gwerıng	ına gwering	this time		PHRASE	0.94	user_morphology	Proximal demonstrative plus time/instance noun
+meselâz	mesel	story also/this story	hikaye de	N	0.82	first_pass_seed	story context
+bezre	bezre	seed	tohum	N	0.98	first_pass_seed	dictionary-confirmed story noun
+bezrê	bezre	seed	tohum	N	0.92	first_pass_seed	oblique story form
+ğele	ğele	wheat	buğday	N	0.98	first_pass_seed	dictionary-confirmed story noun
+ğelê	ğele	wheat	buğday	N	0.92	first_pass_seed	oblique story form
+nûn	nûn	bread	ekmek	N	0.94	first_pass_seed	story noun
+nûna	nayış	put		V	0.94	user_morphology	User note: lemma should be nayış and gloss put; occurs with rwe in rwe nayış phrase
+rwe	rwe	down	aşağı	NVE	0.9	user_morphology	nonverbal element used with verbs; can precede or follow depending on tense/mood
+rwı	rwe	down	aşağı	NVE	0.88	user_morphology	orthographic/vowel variant of rwe nonverbal element
+nûn rwe	rwe nayış	put down / plant	ekmek/dikmek	V	0.92	user_morphology	multiword predicate; dictionary form rwe nayış; in this context means planting/putting down seed
+nıştı	nıştış	sit-ADJZ		ADJ	0.9	user_morphology	nışt is the sitting stem; final -ı is tentatively adjectivizer
+rwe nıştı	rwe nıştış	be seated		ADJ	0.9	user_morphology	Phrase in xwaz ho rwe nıştı, the pig is seated
+na	nayış	put.PST	koydu	V	0.9	user_morphology	past form of nayış in the phrase na rwe/na rwı
+na rwe	rwe nayış	put down.PST	koydu/indirdi	V	0.94	user_morphology	past tense of rwe nayış, put down
+na rwı	rwe nayış	put down.PST	koydu/indirdi	V	0.94	user_morphology	surface variant of na rwe with rwı for rwe
+ardû	ardû	flour	un	N	0.92	first_pass_seed	story noun
+fırın	fırın	oven/furnace	fırın	N	0.92	first_pass_seed	Turkish loan/common noun
+rahar	rahar	road/path	yol	N	0.98	first_pass_seed	dictionary-confirmed story noun
+lıng	lıng	foot	ayak	N	0.94	user_morphology	foot; used in pê ... -a circumpositional phrases and plural/oblique forms
+lirû	lir	young-PL.OBL	yavrulara/yavruların	N	0.94	user_morphology	lir-û; lir means young of animals, -û is reduced oblique plural -ûn
+lir	lir	young	yavru	N	0.9	user_morphology	young of animals
+'haywûn	haywûn	animal	hayvan	N	0.92	first_pass_seed	common loan/story noun
+'haywûnû	haywûn	animals	hayvanlar	N	0.88	first_pass_seed	plural story form
+haywûn	haywûn	animal	hayvan	N	0.92	first_pass_seed	common loan/story noun
+haywûnû	haywûn	animals	hayvanlar	N	0.88	first_pass_seed	plural story form
+qâb	qâb	bowl/dish	kap	N	0.82	first_pass_seed	story context
+dbılav	dbılav	plate/dish	tabak	N	0.76	first_pass_seed	needs review
+dbılavi	dbılav	plate/dish	tabak	N	0.76	first_pass_seed	needs review
+dbılavê	dbılav	plate/dish	tabak	N	0.76	first_pass_seed	needs review
+dbılavû	dbılav	plate/dish	tabak	N	0.76	first_pass_seed	needs review
+gezı	gezı	stick/sweep?	sopa/süpürge	N	0.7	first_pass_seed	needs review
+gezê	gezı	stick/sweep?	sopa/süpürge	N	0.7	first_pass_seed	needs review
+çuwa	çuwa	stick	çubuk	N	0.78	first_pass_seed	story context
+çuwûn	çuwa	sticks	çubuklar	N	0.74	first_pass_seed	needs review
+qiri	qiri	scream	çığlık	N	0.9	first_pass_seed	story context
+sebı	sebı	what happened?	ne oldu	INTJ	0.82	first_pass_seed	dialogue context
+şêy	şêy	happy	mutlu	ADJ	0.94	user_morphology	user correction; not sey orphan here
+qefliyayeyo	qefliyayış	tired-M.SG.COP		ADJ+COP	0.9	user_morphology	User note: tired; final -o kept as masculine singular copula for now
+qêfliyayeyo	qefliyayış	tired-M.SG.COP		ADJ+COP	0.9	user_morphology	Orthographic variant of qefliyayeyo; tired plus copula
+qêyflyayeyo	qefliyayış	tired-M.SG.COP		ADJ+COP	0.86	user_morphology	Orthographic/typo variant of qefliyayeyo; tired plus copula
+vûna	vaten	says	diyor	V	0.94	first_pass_seed	recurring speech verb
+vûn	vaten	says	diyor/dedi	V	0.92	first_pass_seed	recurring speech verb
+va	vaten	said	dedi	V	0.9	first_pass_seed	recurring speech verb
+vo	vaten	said	dedi	V	0.86	first_pass_seed	recurring speech verb
+pers	persayış	SBJV-ask	sormak	V	0.94	user_morphology	bare stem subjunctive form; analyzed with null subjunctive prefix
+persena	persayış	asks	soruyor	V	0.9	first_pass_seed	recurring question verb
+kena	kerdış	does/makes	yapıyor	V	0.9	first_pass_seed	common verb
+ken	kerdış	does/makes	yapar	V	0.86	first_pass_seed	common verb
+kên	kerdış	do/make	yaparlar	V	0.86	first_pass_seed	common verb
+ş	şiyayış	go	gitmek	V	0.84	user_morphology	stem in ş-ın-a and ş-in forms
+şına	şiyayış	go	gidiyor	V	0.92	first_pass_seed	3sg feminine present/imperfective motion verb
+şi	şiyayış	went	gitti	V	0.9	first_pass_seed	common motion verb
+şin	şiyayış	go	gider/gidiyor	V	0.88	first_pass_seed	3pl present/imperfective motion verb
+şû	şiyayış	went	gitti	V	0.82	first_pass_seed	common motion verb
+şıno	şiyayış	goes	gidiyor	V	0.86	first_pass_seed	common motion verb
+şyû	şiyayış	went	gitti	V	0.84	first_pass_seed	common motion verb
+yên	ameyış	come	geliyorlar	V	0.86	first_pass_seed	common motion verb
+yen	ameyış	comes	geliyor	V	0.84	first_pass_seed	common motion verb
+yena	ameyış	comes	geliyor	V	0.84	first_pass_seed	common motion verb
+hûnyena	hûnyayış	look	görüyor	V	0.9	user_morphology	look verb; corresponds to oynyen/ûnyen-type forms, dictionary form uncertain
+hûnyêna	hûnyayış	look	görüyor	V	0.88	user_morphology	look verb; not vinenayış 'see'
+hûnyên	hûnyayış	look	görüyorlar	V	0.88	user_morphology	look verb; not vinenayış 'see'
+hûnyen	hûnyayış	look	görüyorlar	V	0.86	user_morphology	look verb; not vinenayış 'see'
+hûnyê	hûnyayış	look	görüyorlar	V	0.84	user_morphology	look verb; not vinenayış 'see'
+honê	xonê	again		ADV	0.9	user_morphology	User note: means again; lemma may be xonê
+huncık	hûncik	nevertheless		ADV	0.97	ak_metadata+dictionary	A.K. reviewed hûncik as yine de; Rosan anci ji also means yine de/genede; concessive discourse adverb
+hûncik	hûncik	nevertheless		ADV	0.97	ak_metadata+dictionary	A.K. reviewed hûncik as yine de; concessive discourse adverb
+hûncık	hûncik	nevertheless		ADV	0.97	ak_metadata+dictionary	Variant spelling of A.K. reviewed hûncik, yine de
+vinena	vinenayış	sees	görüyor	V	0.9	first_pass_seed	visual verb
+vinen	vinenayış	sees	görüyor	V	0.86	first_pass_seed	visual verb
+viyerd	viyertış	passed	geçti	V	0.86	first_pass_seed	story context
+viyert	viyertış	passed	geçti	V	0.86	first_pass_seed	story context
+viyeren	viyertış	passes	geçiyor	V	0.84	first_pass_seed	story context
+viyerena	viyertış	passes	geçiyor	V	0.84	first_pass_seed	story context
+dest	dest	hand	el	N	0.9	user_morphology	means hand; dest eştiş is the lexicalized help/lend-a-hand expression
+dest eştiş	dest eştiş	help/lend a hand	yardım etmek	V	0.94	user_morphology	literal hand throw; phrase-level gloss for dest plus erz/herz/eştiş verb forms
+herz	eştiş	throw	atmak	V	0.84	user_morphology	present/imperfective stem corresponding to infinitive eştiş; phrase dest eştiş means help
+erz	eştiş	throw	atmak	V	0.84	user_morphology	alternate present/subjunctive stem corresponding to infinitive eştiş
+erzen	eştiş	throw-IPFV	atıyor	V	0.84	user_morphology	erz-en with imperfective -en; phrase dest eştiş means help
+berz	eştiş	SBJV-throw	at	V	0.86	user_morphology	b-erz: b- subjunctive plus alternate stem erz; dictionary/citation form eştiş
+herzen	eştiş	throw-IPFV	atıyor	V	0.82	user_morphology	herz-en with imperfective -en; phrase dest eştiş means help
+herzena	eştiş	throw-IPFV-F.SG	atıyor	V	0.82	user_morphology	herz-en-a; phrase dest eştiş means help
+herzên	eştiş	throw-RAISE-IPFV	atıyor	V	0.82	user_morphology	raised/contracted herz-en; phrase dest eştiş means help
+erzên	eştiş	throw-RAISE-IPFV	atıyor	V	0.82	user_morphology	raised/contracted erz-en; phrase dest eştiş means help
+nerzen	eştiş	NEG-throw-IPFV	atmaz	V	0.82	user_morphology	n-erz-en; phrase dest eştiş means help
+nerzeno	eştiş	NEG-throw-IPFV-1SG	atmam	V	0.82	user_morphology	n-erz-en-o; A.K. verbal -o is 1sg here, not masculine
+nerzên	eştiş	NEG-throw-RAISE-IPFV	atmaz	V	0.82	user_morphology	n-erz-ên; phrase dest eştiş means help
+neherzeno	eştiş	NEG-throw-IPFV-1SG	atmam	V	0.82	user_morphology	ne-herz-en-o; phrase dest eştiş means help
+neherzên	eştiş	NEG-throw-RAISE-IPFV	atmaz	V	0.82	user_morphology	ne-herz-ên; phrase dest eştiş means help
+nıherzeno	eştiş	NEG-throw-IPFV-1SG	atmam	V	0.82	user_morphology	nı-herz-en-o; phrase dest eştiş means help
+vırazena	vıraştış	makes/prepares	yapıyor/hazırlıyor	V	0.86	first_pass_seed	story context
+vırazeno	vıraştış	makes/prepares	yapıyor/hazırlıyor	V	0.86	first_pass_seed	story context
+vırazen	vıraştış	make/prepare	yapmak/hazırlamak	V	0.84	first_pass_seed	story context
+vıraşt	vıraştış	made/prepared	yaptı/hazırladı	V	0.84	first_pass_seed	story context
+pocena	pocayış	bakes	pişiriyor	V	0.84	first_pass_seed	story context
+pocen	pocayış	bakes	pişiriyor	V	0.82	first_pass_seed	story context
+pot	pocayış	baked	pişti	V	0.82	first_pass_seed	story context
+aryê	aryê	mill	değirmen	N	0.86	user_morphology	mill; destination in go/take-to-mill clauses
+aryed	aryê	mill/grind-PST	öğüttü/değirmene götürdü	V	0.78	user_morphology	story context; needs further review
+tâ'hnen	tâ'hnayış	grind-IPFV		V	0.9	user_morphology	User note: grind; tâ'hn-en with imperfective suffix
+tâ'hneno	tâ'hnayış	grind-IPFV-1SG		V	0.97	user_morphology	User note: grind; tâ'hn-en-o with imperfective and 1sg verbal -o
+çineno	çinayış	reaps/harvests	biçiyor	V	0.84	first_pass_seed	Little Red Hen context
+çinên	çinayış	reap/harvest-IPFV.PL		V	0.94	user_morphology	çin-ên; -ên is imperfective -en with vowel raising for plural
+bıçim	çinayış	let us reap/harvest	biçelim	V	0.82	first_pass_seed	Little Red Hen context
+bıçin	çinayış	SBJV-reap/harvest	biçelim/biçsin	V	0.9	user_morphology	bı-çin; subjunctive of reap/harvest, not grudge
+wên	werdiş	eat	yiyorlar	V	0.88	first_pass_seed	common verb
+weno	werdiş	eats	yiyor	V	0.88	first_pass_seed	common verb
+wen	werdiş	eats	yiyor	V	0.86	first_pass_seed	common verb
+we	werdiş	ate/eat	yedi	V	0.82	first_pass_seed	common verb
+bena	biyayış	be/become-IPFV-F.SG	oluyor	V	0.86	user_morphology	b-en-a; b is the stem here, not the subjunctive prefix
+ben	biyayış	be/become-IPFV	olur/oluyor	V	0.84	user_morphology	b-en; b is the stem here, not the subjunctive prefix
+biyû	biyayış	became/was	oldu	V	0.86	first_pass_seed	common verb
+bên	berdiş	bring/carry	getirirler/götürürler	V	0.76	first_pass_seed	needs review
+bêr	berdiş	bring/carry	getir/götür	V	0.74	first_pass_seed	needs review
+kwena	kotış	fall-IPFV-F.SG	düşüyor/yola koyuldu	V	0.94	user_morphology	kw-en-a; kw/kwe is A.K. dialect stem for kotış with o > we
+kwen	kotış	fall-IPFV	düşüyor	V	0.88	user_morphology	kw-en; A.K. dialect stem for kotış with o > we
+gên	gırotış	take/get	alırlar	V	0.82	first_pass_seed	story context
+gena	gırotış	takes/gets	alıyor	V	0.82	first_pass_seed	story context
+ka'hriyena	ka'hriyayış	gets angry	kızıyor	V	0.84	first_pass_seed	Little Red Hen context
+qayil	qayil	willing/agreeing	razı/istekli	ADJ	0.86	first_pass_seed	common loan/story context
+têyna	teyna	alone	yalnız	ADV	0.94	user_morphology	short gloss for alone/by oneself
+têna	teyna	alone	yalnız	ADV	0.9	user_morphology	surface variant of têyna
+germ	germ	warm/hot	sıcak	ADJ	0.94	user_morphology	adjective stem
+germin	germ	warm/hot-ADJZ	sıcak	ADJ	0.94	user_morphology	germ-in; -in is a derivational/adjectivizer ending, possibly redundant here because germ is already adjectival
+bırûm	ramıtış	sow/plant	ekmek	V	0.82	first_pass_seed	Little Red Hen context
+hâtât	hâtât	everywhere/all around	her yer	ADV	0.72	first_pass_seed	needs review
+gêyren	gêrayış	search/turn	arıyor/dönüyor	V	0.76	first_pass_seed	ambiguous story verb
+gêyrên	gêrayış	search/turn	arıyorlar/dönüyorlar	V	0.76	first_pass_seed	ambiguous story verb
+gêyrena	gêrayış	turns/searches	dönüyor/arıyor	V	0.76	first_pass_seed	ambiguous story verb
+qwarena	qwarayış	shouts/calls	bağırıyor	V	0.8	first_pass_seed	story context
+tersena	tersayış	is afraid	korkuyor	V	0.86	first_pass_seed	common verb
+terseno	tersayış	is afraid	korkuyor	V	0.86	first_pass_seed	common verb
+remên	remayış	flee/run away	kaçıyorlar	V	0.84	first_pass_seed	story context
+kışen	kıştış	kills	öldürüyor	V	0.86	first_pass_seed	story context
+mıren	mırdayış	dies	ölüyor	V	0.86	first_pass_seed	story context
+qedyê	qediyayış	finished/ended	bitti	V	0.86	first_pass_seed	common ending verb
+qêdyên	qediyayış	finish/end	bitiyorlar	V	0.86	first_pass_seed	common ending verb
+qêdyena	qediyayış	ends	bitiyor	V	0.86	first_pass_seed	common ending verb
+pwırı	pwırı	hit/strike element	vurma ögesi	V.PRT	0.9	user_correction	part of approved dûn pwırı hit expression; blocks false hair match
+hâri	ari	gather	toplama	NVE	0.86	user_morphology	nonverbal element; likely ari in other dialects
+dûn hâri	aridayış	gather	toplamak	V	0.92	user_morphology	multiword predicate with nonverbal element before stem in infinitive dictionary form
+dûn pwırı şın	dûn pwırı şın	leave suddenly	aniden ayrılmak	V	0.99	user_correction	lexicalized multiword predicate
+pior	piyor	all	hepsi	ADV	0.9	user_morphology	variant spelling of piyor
+pyor	piyor	all	hepsi	ADV	0.9	user_morphology	variant spelling of piyor
+piya	piya	together	birlikte	ADV	0.94	user_morphology	together; variants pya/pia
+pya	piya	together	birlikte	ADV	0.9	user_morphology	variant spelling of piya
+pia	piya	together	birlikte	ADV	0.9	user_morphology	variant spelling of piya
+piyor piya	piyor piya	all together	hep birlikte	PHRASE	0.97	user_morphology	multiword adverbial expression
+mıda	mı-da	1SG.OBL-LOC	benimle	PRON+CASE	0.94	user_morphology	mı-da, literally 1SG.OBL-LOC; in this context means with me
+be	berdiş	take/carry	götürmek/taşımak	V	0.86	user_morphology	present/imperfective stem in be-n-o
+beno	berdiş	take/carry-IPFV-1SG	götürüyorum/taşıyorum	V	0.94	user_morphology	be-n-o: take/carry-IPFV-1SG
+arye	aryê	mill	değirmen	N	0.84	user_morphology	unraised/unmarked spelling of aryê

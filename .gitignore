@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments
+.venv/
+.venv*/
+venv/
+venv*/
+env/
+
+# Models and large ML artifacts
+models/
+model/
+checkpoints/
+checkpoint-*/
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.onnx
+
+# Audio/video and large exports
+*.wav
+*.mp3
+*.m4a
+*.mp4
+*.webm
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# Generated bundle/output folders
+extracted_bundles*/
+transcription_outputs/
+evals/
+outputs/
+asr_output/
+training_data/clips/
+audio_wav16k/
+media/
+tmp/
+.tmp*/
+cache/
+*.log
+
+# Local credentials
+*.env
+*.secret
+*credentials*
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

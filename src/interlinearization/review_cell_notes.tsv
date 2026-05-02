@@ -1,0 +1,39 @@
+lesson_id	line_id	token_index	row_label	morph_index	form	current_value	note	status	updated_at
+ak_little_red_hen	2a	9	POS		çıkedı	?	how	resolved	2026-04-30T11:21:31+00:00
+ak_little_red_hen	2b	7	GLOSS	1	nerzên	help/lend a hand	erz / eştiş = to throw. dest eştiş - to help (lit. throw hand)	resolved	2026-04-30T11:21:31+00:00
+ak_little_red_hen	10b	3	POS		lıngûna	?	"lıng - foot. pê... -a means with. the -a ending ends the ""with X"" phrase. ûn is the oblique plural ending."	resolved	2026-04-30T11:14:31+00:00
+ak_little_red_hen	18	1	GLOSS	0	Hin	so	"Hin has a meaning like Turkish ""artık"". I guess in English it could mean a number of things. Anymore, at this point, by this time, etc."	resolved	2026-04-30T11:21:31+00:00
+ak_little_red_hen	18	10	GLOSS	1	bıçin	grudge	reap	resolved	2026-04-30T11:21:31+00:00
+ak_little_red_hen	2a	9	GLOSS	0	çıkedı	because	"çıkedı means ""how"" / in what way. So ez çıkedı bırûm means how am I supposed to plant it? Or how should I plant it (e.g. I need help)"	resolved	2026-04-30T11:21:31+00:00
+ak_little_red_hen	16	5	GLOSS	0	têyna	1) alone, by oneself, solo, exclusively, mere...	"make this a shorter gloss. ""alone"" is probably fine"	resolved	2026-04-30T11:21:31+00:00
+ak_little_red_hen	7	4	LEMMA		qazê	qaze	lemma is qaz. -ê is ezafe but just a normal ezafe, not raising a vowel	resolved	2026-04-30T11:24:27+00:00
+ak_little_red_hen	16	12	GLOSS	0	nûna	bread	lemma should be something like nayış. gloss is put	resolved	2026-04-30T11:27:15+00:00
+ak_little_red_hen	22	4	POS		honê	?	this means again but maybe it is xonê?	resolved	2026-04-30T11:27:15+00:00
+ak_little_red_hen	24	10	GLOSS	0	nıştı	Resolving (nervous)	nışt - verb stem for sitting. -ı here I think is an adjectivizer or something. so xwaz ho rwe nıştı is something like the pigis seated	resolved	2026-04-30T11:28:51+00:00
+ak_little_red_hen	26	5	POS		qefliyayeyo	?	tired	resolved	2026-04-30T11:28:51+00:00
+ak_little_red_hen	26	8	GLOSS	0	nyo	is not	change is not to COP.NEG or something like that	resolved	2026-04-30T11:28:51+00:00
+ak_little_red_hen	28ba	16	GLOSS	1	selê	PL/OBL/EZ	EZ	resolved	2026-04-30T11:31:11+00:00
+ak_little_red_hen	34	3	POS		gwerıng	?	"gwering = time as in ""instance"". ına gwerıng = this time"	resolved	2026-04-30T11:31:11+00:00
+ak_little_red_hen	49	11	GLOSS	1	kergo	M.SG.COP	and	resolved	2026-04-30T11:33:01+00:00
+ak_little_red_hen	49	9	GLOSS	0	Êy	3SG.OBL	êy la = for that reason	resolved	2026-04-30T11:33:01+00:00
+ak_little_red_hen	47	1	GLOSS	0	İkê	this/these	Now (other dialects: nıka, inki, iki, inkê)	resolved	2026-04-30T11:33:01+00:00
+ak_little_red_hen	32b	7	POS		tâ'hneno	?	grind	resolved	2026-04-30T11:38:17+00:00
+ak_little_red_hen	45	4	LEMMA		Êla	?	Same as êy la. Not sure if one word or two and not sure if we should put a y here or not	resolved	2026-04-30T14:40:41+00:00
+ak_little_red_hen	48	18	GLOSS	1	izı	OBL	I'm not sure what this ı is.	resolved	2026-05-01T06:28:51+00:00
+ak_little_red_hen	48	7	MORPH	1	İzik	ik	"Might be from the ""ki"" word/suffix, but I'm not sure what its use is here. I think it's something like adding emphasis"	resolved	2026-05-01T06:28:51+00:00
+ak_little_red_hen	17a	4	GLOSS	0	demû	dem	"This means ""time"" but I'm not sure where this word comes from. Is it in any dictionary or attested for zazaki anywhere online?"	resolved	2026-05-01T06:28:51+00:00
+ak_cat_hayvan-vucut-bolumleri-1-genc-palu	6567	3	LEMMA		çada	Çad	ça - where	resolved	2026-05-01T06:28:51+00:00
+ak_cat_aletler-genc-palu	16016	1	LEMMA		Darê	dar	this is not a tree but a tool with a curved blade	resolved	2026-05-01T06:28:51+00:00
+ak_cat_baglac-ve-genc-palu	15088	4	GLOSS	1	çiçego	M.SG.COP	and	resolved	2026-05-01T06:28:51+00:00
+ak_cat_baglac-ve-genc-palu	15070	6	WORD		yozik	yozik	one-also-(something like emphasis? I think it comes from the Iranian ki word)	resolved	2026-05-01T06:28:51+00:00
+ak_cat_agac-cesitleri-genc-palu	8662	3	GLOSS	1	mûryera	?	the -yer ending is most commonly used for trees and bushes. so mura (pear) - yer = muryer (pear tree). This is derivational and shows up in a few other places.	resolved	2026-05-01T06:28:51+00:00
+ak_cat_baharatlar-ve-yesillikler-genc-palu	8671	1	POS		Sımax	?	sumak, but I need to nail down the spelling	resolved	2026-05-01T06:28:51+00:00
+ak_cat_degerli-taslar-genc-palu	15350	1	GLOSS	0	Mûra	pear	"in this case, it means ""bead"" as in boncuk"	resolved	2026-05-01T06:28:51+00:00
+ak_cat_degerli-taslar-genc-palu	12264	1	GLOSS	0	Yaqût	The ruby is a precious stone	use simpler glosses. this is just ruby	resolved	2026-05-01T06:28:51+00:00
+ak_cat_degerli-taslar-genc-palu	12252	1	GLOSS	0	Kwırdela	?	ribbon. from same root as turkish kurdele	resolved	2026-05-01T06:28:51+00:00
+ak_cat_ev-esyasi-3-genc-palu	4656	1	GLOSS	0	Piriz	spider	"this is a loan word from turkish ""priz"", not the same as the word for spider"	resolved	2026-05-01T06:28:51+00:00
+ak_cat_ev-esyasi-3-genc-palu	4661	3	LEMMA		şwışo	şwış	lemma is şwışe (the e gets deleted by the o copula suffix). This is another case of u->wı shift (turkish: şuşe)	resolved	2026-05-01T06:28:51+00:00
+ak_cat_ev-esyasi-3-genc-palu	4673	3	GLOSS	1	şemawa	?	candle with w buffer followed by fem.copula	resolved	2026-05-01T06:28:51+00:00
+ak_cat_ev-esyasi-3-genc-palu	4686	1	GLOSS	0	Mâqês	?	tr: makas	resolved	2026-05-01T06:28:51+00:00
+ak_cat_ev-esyasi-3-genc-palu	16803	3	GLOSS	0	şıqa	chirping-?	a hallway carpet (tr: yolluk)	resolved	2026-05-01T06:28:51+00:00
+ak_cat_ev-esyasi-3-genc-palu	16803	3	LEMMA		şıqa	şiqa	Long thin carpet	resolved	2026-05-01T06:28:51+00:00

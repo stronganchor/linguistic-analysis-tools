@@ -1,0 +1,21 @@
+# Broad dependency list for the reusable scripts.
+# Some historical scripts need only a subset.
+datasets
+evaluate
+fastapi
+librosa
+matplotlib
+numpy
+openai
+pandas
+praat-parselmouth
+python-multipart
+requests
+scikit-learn
+soundfile
+torch
+torchaudio
+tqdm
+transformers
+uvicorn
+jiwer

@@ -1,0 +1,20 @@
+{
+  "bundle_files": [
+    "ll-tools-stt-training-genc-palu-recording_ipa-20260407-124628.zip"
+  ],
+  "total_examples": 911,
+  "unique_words": 436,
+  "by_split": {
+    "eval": 189,
+    "train": 722
+  },
+  "by_recording_type": {
+    "introduction": 265,
+    "isolation": 367,
+    "question": 279
+  },
+  "by_category": {},
+  "by_bundle": {
+    "ll-tools-stt-training-genc-palu-recording_ipa-20260407-124628.zip": 911
+  }
+}
