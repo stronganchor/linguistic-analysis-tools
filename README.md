@@ -1,7 +1,8 @@
-# Zazaki STT And Interlinear Workflows
+# Linguistic Analysis Tools
 
-This repository collects the reusable code and process notes from a Zazaki
-speech-to-text, transcription-review, and interlinearization project.
+This repository collects reusable code and process notes for linguistic
+analysis workflows. The initial material comes from a Zazaki speech-to-text,
+transcription-review, and interlinearization project.
 
 The work started with a small manually transcribed IPA corpus. We trained local
 STT models, used the best model to transcribe more recordings, manually
