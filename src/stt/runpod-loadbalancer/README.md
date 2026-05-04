@@ -65,6 +65,8 @@ In Runpod:
 5. Set the container port to `8000`
 6. Set the health path to `/ping`
 7. Use a GPU worker type suitable for low-latency inference
+8. Add an environment variable named `LL_TOOLS_STT_API_TOKEN` with a long random token
+9. Keep **Max workers** at `0` whenever the endpoint is not actively needed
 
 For a proof of concept with a few users, start with one worker and a smaller GPU like an L4 or RTX 4000 Ada if available. Increase only if cold starts or latency are a problem.
 
@@ -72,7 +74,7 @@ For a proof of concept with a few users, start with one worker and a smaller GPU
 
 - `GET /ping`
 - `GET /health`
-- `POST /transcribe` with multipart field `audio`
+- `POST /transcribe` with multipart field `audio` and a bearer token matching `LL_TOOLS_STT_API_TOKEN`
 
 Response:
 
@@ -94,7 +96,7 @@ Use the existing `Hosted STT API` settings:
 1. `Lesson Transcription Provider`: `Hosted STT API`
 2. `Custom STT Output`: `Secondary transcription field (IPA)`
 3. `Custom STT Endpoint`: your Runpod endpoint plus `/transcribe`
-4. `Hosted API Token`: your Runpod API key
+4. `Hosted API Token`: the same token you set in `LL_TOOLS_STT_API_TOKEN`
 5. `Speaking Game STT Provider`: `Hosted STT API`
 6. `Speaking Game Comparison Target`: `IPA`
 
@@ -106,6 +108,6 @@ https://your-runpod-hostname/transcribe
 
 ## Notes
 
-- Keep the endpoint private and use the token field in LL Tools for the Runpod API key.
+- Keep the endpoint private and use the token field in LL Tools for the hosted STT token. Do not use or publish your Runpod account API key as the hosted STT token.
 - This image bakes the model into the container. That is slower to rebuild, but simplest for now.
 - Later, if you want faster builds and rollouts, move the model to object storage and download it during container start.

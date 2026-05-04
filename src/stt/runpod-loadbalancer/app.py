@@ -1,11 +1,12 @@
 import os
+import hmac
 import tempfile
 import threading
 import time
 import traceback
 from pathlib import Path
 
-from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi import FastAPI, File, Header, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
 
@@ -14,11 +15,24 @@ from serve_local_stt_ipa import choose_device, load_model_bundle, transcribe_fil
 
 MODEL_SOURCE = os.environ.get("MODEL_SOURCE", "/models/current")
 REQUEST_DEVICE = os.environ.get("DEVICE", "auto")
+API_TOKEN = (
+    os.environ.get("LL_TOOLS_STT_API_TOKEN")
+    or os.environ.get("HOSTED_STT_API_TOKEN")
+    or os.environ.get("RUNPOD_STT_API_TOKEN")
+    or ""
+).strip()
+MAX_UPLOAD_BYTES = int(os.environ.get("MAX_UPLOAD_BYTES", str(25 * 1024 * 1024)))
+DEBUG_HEALTH = os.environ.get("DEBUG_HEALTH", "").strip().lower() in {"1", "true", "yes"}
+ALLOWED_ORIGINS = [
+    item.strip()
+    for item in os.environ.get("ALLOWED_ORIGINS", "*").split(",")
+    if item.strip()
+]
 
 app = FastAPI(title="LL Tools Zazaki STT", version="1.0")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=ALLOWED_ORIGINS or ["*"],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -76,7 +90,9 @@ def _status_payload() -> dict:
             "ready": bool(STATE["ready"]),
             "loading": bool(STATE["loading"]),
             "uptime_seconds": int(max(0, time.time() - STATE["started_at"])),
-            "error": STATE["error"] if not STATE["ready"] else "",
+            "auth_configured": bool(API_TOKEN),
+            "max_upload_bytes": MAX_UPLOAD_BYTES,
+            "error": STATE["error"] if (DEBUG_HEALTH and not STATE["ready"]) else ("model_failed" if STATE["error"] else ""),
         }
 
 
@@ -100,8 +116,50 @@ def health() -> JSONResponse:
     return JSONResponse(payload, status_code=503)
 
 
+def _require_auth(authorization: str | None, x_ll_tools_token: str | None) -> None:
+    if API_TOKEN == "":
+        raise HTTPException(status_code=503, detail="api_token_not_configured")
+
+    provided = (authorization or "").strip()
+    if provided.lower().startswith("bearer "):
+        provided = provided[7:].strip()
+    else:
+        provided = (x_ll_tools_token or "").strip()
+
+    if provided == "" or not hmac.compare_digest(provided, API_TOKEN):
+        raise HTTPException(
+            status_code=401,
+            detail="unauthorized",
+            headers={"WWW-Authenticate": 'Bearer realm="ll-tools-stt"'},
+        )
+
+
+async def _read_upload_limited(audio: UploadFile) -> bytes:
+    chunks: list[bytes] = []
+    total = 0
+
+    while True:
+        chunk = await audio.read(1024 * 1024)
+        if not chunk:
+            break
+
+        total += len(chunk)
+        if total > MAX_UPLOAD_BYTES:
+            raise HTTPException(status_code=413, detail="audio_too_large")
+
+        chunks.append(chunk)
+
+    return b"".join(chunks)
+
+
 @app.post("/transcribe")
-async def transcribe(audio: UploadFile = File(...)) -> JSONResponse:
+async def transcribe(
+    audio: UploadFile = File(...),
+    authorization: str | None = Header(default=None),
+    x_ll_tools_token: str | None = Header(default=None, alias="X-LL-Tools-Token"),
+) -> JSONResponse:
+    _require_auth(authorization, x_ll_tools_token)
+
     with STATE_LOCK:
         if STATE["loading"]:
             raise HTTPException(status_code=503, detail="model_loading")
@@ -113,7 +171,7 @@ async def transcribe(audio: UploadFile = File(...)) -> JSONResponse:
         raise HTTPException(status_code=503, detail="model_unavailable")
 
     upload_name = (audio.filename or "").strip() or "recording.wav"
-    audio_bytes = await audio.read()
+    audio_bytes = await _read_upload_limited(audio)
     if not audio_bytes:
         raise HTTPException(status_code=400, detail="missing_audio")
 
