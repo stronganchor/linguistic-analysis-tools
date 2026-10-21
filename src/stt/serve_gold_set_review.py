@@ -16,6 +16,9 @@ from pathlib import PureWindowsPath
 from typing import Any
 from urllib.parse import urlparse
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from review_security import ReviewSecurityMixin, configure_review_server, review_html
+
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -57,6 +60,7 @@ def parse_args() -> argparse.Namespace:
         )
     )
     parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--allowed-origin", action="append", default=[], help="Explicit browser origin for a trusted remote/proxy review session; repeatable.")
     parser.add_argument("--port", type=int, default=8772)
     parser.add_argument("--ipa-metadata-path", default=str(default_ipa_metadata_path()))
     parser.add_argument("--text-metadata-path", default=str(default_text_metadata_path()))
@@ -181,6 +185,8 @@ def send_text(handler: BaseHTTPRequestHandler, text: str, status: int = 200) -> 
 
 def send_file(handler: BaseHTTPRequestHandler, path: Path, content_type: str | None = None) -> None:
     data = path.read_bytes()
+    if path.suffix.lower() == ".html":
+        data = review_html(data)
     handler.send_response(200)
     handler.send_header(
         "Content-Type",
@@ -853,7 +859,7 @@ class ReviewStore:
 
 
 def build_handler(store: ReviewStore):
-    class ReviewHandler(BaseHTTPRequestHandler):
+    class ReviewHandler(ReviewSecurityMixin, BaseHTTPRequestHandler):
         server_version = "GoldSetReview/1.0"
 
         def log_message(self, fmt: str, *args: Any) -> None:
@@ -969,6 +975,7 @@ def main() -> None:
     )
     handler = build_handler(store)
     server = ThreadingHTTPServer((args.host, args.port), handler)
+    configure_review_server(server, args.allowed_origin, args.host)
 
     url = f"http://{args.host}:{args.port}/"
     print(f"Gold-set review UI: {url}")

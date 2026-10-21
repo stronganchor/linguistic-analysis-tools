@@ -38,6 +38,9 @@ src/stt/
 src/interlinearization/
   Local interlinearizer, correction memory, and review UI
 
+src/review_security.py, src/review_security.js
+  Shared browser session protection for the local review servers
+
 src/dictionaries/
   Dictionary conversion, QA, and LL Tools import builders
 
@@ -78,6 +81,40 @@ Public plugin repository: <https://github.com/stronganchor/language-learner-tool
 This repository does not include the full WordPress plugin. It documents the
 integration points and keeps the reusable research-side scripts that consumed or
 produced LL Tools-compatible data.
+
+## Local review server sessions
+
+The gold-set, unresolved IPA, vowel-boundary, and interlinear review servers
+validate the HTTP Host and browser Origin, and require a fresh per-server
+`X-Review-Token` plus JSON content type for every mutation. Open the review page
+through its running server. It loads the session helper before existing UI
+scripts, including historical STT HTML kept in the data workspace. Existing
+saved decisions, corrections, notes, and output formats are preserved. Reload
+the page after restarting a server. When copying server scripts, keep
+`review_security.py` and `review_security.js` one directory above the server's
+directory, matching this source layout. For historical `Z/Speech to Text IPA/`
+and `Z/interlinearization/` copies, that shared location is the `Z/` root.
+
+The default listener is loopback. An existing explicit `--host` binding remains
+available; use `--allowed-origin https://review.example` for a trusted reverse
+proxy or hostname, repeating it for additional origins. A wildcard bind requires
+at least one explicit origin. Remote deployments must restrict network access
+and authenticate users at their HTTPS proxy; these trusted-device review tools
+do not provide user accounts. A loopback listener with an SSH tunnel preserves
+the normal local workflow.
+
+Regression checks use temporary fixture stores and do not touch review data:
+
+```text
+python -B -m unittest discover -s tests -p test_review_security.py -v
+node --test tests/review_security.test.mjs
+python -B -m unittest discover -s tests -p test_hosted_request_guard.py -v
+```
+
+The local handler tests need NumPy and SoundFile for the existing vowel-review
+imports. Hosted tests need FastAPI and python-multipart; they stub model loading
+and inference, exercise the real ASGI application, and check partial disk-spool
+cleanup. No model download or GPU is needed.
 
 See [docs/ll-tools-integration.md](docs/ll-tools-integration.md).
 

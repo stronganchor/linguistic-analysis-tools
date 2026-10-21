@@ -22,6 +22,8 @@ API_TOKEN = (
     or ""
 ).strip()
 MAX_UPLOAD_BYTES = int(os.environ.get("MAX_UPLOAD_BYTES", str(25 * 1024 * 1024)))
+# Bound the complete multipart request before the framework can spool uploads.
+MAX_REQUEST_BYTES = MAX_UPLOAD_BYTES + 64 * 1024
 DEBUG_HEALTH = os.environ.get("DEBUG_HEALTH", "").strip().lower() in {"1", "true", "yes"}
 ALLOWED_ORIGINS = [
     item.strip()
@@ -37,6 +39,67 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+class HostedRequestGuard:
+    """Authenticate before body parsing and cap actual ASGI bytes, including chunks."""
+
+    def __init__(self, app, max_request_bytes: int):
+        self.app = app
+        self.max_request_bytes = max_request_bytes
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] != "http" or scope["method"] != "POST" or scope["path"].rstrip("/") != "/transcribe":
+            await self.app(scope, receive, send)
+            return
+        from starlette.datastructures import Headers
+        from starlette.formparsers import MultiPartException
+
+        headers = Headers(scope=scope)
+        try:
+            _require_auth(headers.get("authorization"), headers.get("x-ll-tools-token"))
+            lengths = headers.getlist("content-length")
+            if lengths:
+                if len(lengths) != 1 or not lengths[0].isascii() or not lengths[0].isdigit():
+                    raise HTTPException(status_code=400, detail="invalid_content_length")
+                if int(lengths[0]) > self.max_request_bytes:
+                    raise HTTPException(status_code=413, detail="request_too_large")
+        except HTTPException as exc:
+            await JSONResponse({"detail": exc.detail}, status_code=exc.status_code, headers=exc.headers)(scope, receive, send)
+            return
+
+        total = 0
+        exceeded = False
+
+        async def limited_receive():
+            nonlocal total, exceeded
+            message = await receive()
+            if message["type"] == "http.request":
+                total += len(message.get("body", b""))
+                if total > self.max_request_bytes:
+                    exceeded = True
+                    # Older Starlette releases clean partial spools only for this
+                    # parser exception. Replace their resulting 400 with 413 below.
+                    raise MultiPartException("request_too_large")
+            return message
+
+        async def limited_send(message):
+            if not exceeded:
+                await send(message)
+
+        try:
+            await self.app(scope, limited_receive, limited_send)
+        except HTTPException as exc:
+            if not exceeded:
+                await JSONResponse({"detail": exc.detail}, status_code=exc.status_code, headers=exc.headers)(scope, receive, send)
+        except MultiPartException:
+            if not exceeded:
+                raise
+        if exceeded:
+            await JSONResponse({"detail": "request_too_large"}, status_code=413)(scope, receive, send)
+
+
+app.add_middleware(HostedRequestGuard, max_request_bytes=MAX_REQUEST_BYTES)
 
 STATE = {
     "bundle": None,
@@ -126,7 +189,7 @@ def _require_auth(authorization: str | None, x_ll_tools_token: str | None) -> No
     else:
         provided = (x_ll_tools_token or "").strip()
 
-    if provided == "" or not hmac.compare_digest(provided, API_TOKEN):
+    if provided == "" or not hmac.compare_digest(provided.encode(), API_TOKEN.encode()):
         raise HTTPException(
             status_code=401,
             detail="unauthorized",

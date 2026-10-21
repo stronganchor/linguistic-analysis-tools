@@ -16,6 +16,9 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from review_security import ReviewSecurityMixin, configure_review_server, review_html
+
 import numpy as np
 
 from serve_gold_set_review import (
@@ -201,6 +204,7 @@ def parse_args() -> argparse.Namespace:
         help="Optional hard cap after candidate selection.",
     )
     parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--allowed-origin", action="append", default=[], help="Explicit browser origin for a trusted remote/proxy review session; repeatable.")
     parser.add_argument("--port", type=int, default=8776)
     parser.add_argument("--open-browser", action="store_true")
     return parser.parse_args()
@@ -1290,7 +1294,7 @@ class BoundaryReviewStore:
 
 
 def build_handler(store: BoundaryReviewStore):
-    class BoundaryReviewHandler(BaseHTTPRequestHandler):
+    class BoundaryReviewHandler(ReviewSecurityMixin, BaseHTTPRequestHandler):
         server_version = "VowelBoundaryReview/1.0"
 
         def log_message(self, fmt: str, *args: Any) -> None:
@@ -1417,6 +1421,7 @@ def main() -> None:
     )
     handler = build_handler(store)
     server = ThreadingHTTPServer((args.host, args.port), handler)
+    configure_review_server(server, args.allowed_origin, args.host)
 
     url = f"http://{args.host}:{args.port}/"
     print(f"Vowel boundary review UI: {url}")

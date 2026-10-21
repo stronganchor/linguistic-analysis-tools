@@ -76,6 +76,20 @@ For a proof of concept with a few users, start with one worker and a smaller GPU
 - `GET /health`
 - `POST /transcribe` with multipart field `audio` and a bearer token matching `LL_TOOLS_STT_API_TOKEN`
 
+The ASGI request guard checks the token before the framework parses multipart
+data. It rejects a declared oversized body immediately and counts received bytes
+for chunked uploads and inaccurate Content-Length values. `MAX_UPLOAD_BYTES`
+defaults to 25 MiB for the audio; the complete request gets an additional 64 KiB
+for multipart framing. Overflow stops parsing, closes partial upload spools, and
+returns HTTP 413. Missing configuration returns 503 and invalid tokens return 401
+without reading the request body. Keep any gateway body limit in place as an
+additional boundary.
+
+Run the offline application regression from the repository root with
+`python -B -m unittest discover -s tests -p test_hosted_request_guard.py -v`.
+It uses actual FastAPI/Starlette parsing and temporary upload files with stubbed
+model functions; it does not start a model or contact Runpod.
+
 Response:
 
 ```json

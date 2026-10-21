@@ -149,7 +149,7 @@ const SUFFIX_MORPHEME_HINTS = {
 };
 
 async function api(path, options = {}) {
-  const response = await fetch(path, {
+  const response = await window.reviewFetch(path, {
     headers: { "Content-Type": "application/json" },
     ...options,
   });

@@ -16,6 +16,9 @@ from pathlib import PureWindowsPath
 from typing import Any
 from urllib.parse import urlparse
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from review_security import ReviewSecurityMixin, configure_review_server, review_html
+
 from review_lltools_ipa_comparison import normalize_title_text
 
 
@@ -77,6 +80,7 @@ def parse_args() -> argparse.Namespace:
         )
     )
     parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--allowed-origin", action="append", default=[], help="Explicit browser origin for a trusted remote/proxy review session; repeatable.")
     parser.add_argument("--port", type=int, default=8770)
     parser.add_argument("--audit-path", default=str(default_audit_path()))
     parser.add_argument("--predictions-path", default=str(default_predictions_path()))
@@ -642,6 +646,8 @@ def send_text(handler: BaseHTTPRequestHandler, text: str, status: int = 200) -> 
 
 def send_file(handler: BaseHTTPRequestHandler, path: Path, content_type: str | None = None) -> None:
     data = path.read_bytes()
+    if path.suffix.lower() == ".html":
+        data = review_html(data)
     handler.send_response(200)
     handler.send_header(
         "Content-Type",
@@ -653,7 +659,7 @@ def send_file(handler: BaseHTTPRequestHandler, path: Path, content_type: str | N
 
 
 def send_head_file(handler: BaseHTTPRequestHandler, path: Path, content_type: str | None = None) -> None:
-    size = path.stat().st_size
+    size = len(review_html(path.read_bytes())) if path.suffix.lower() == ".html" else path.stat().st_size
     handler.send_response(200)
     handler.send_header(
         "Content-Type",
@@ -723,7 +729,7 @@ def send_audio(handler: BaseHTTPRequestHandler, path: Path) -> None:
 
 
 def build_handler(store: ReviewStore):
-    class ReviewHandler(BaseHTTPRequestHandler):
+    class ReviewHandler(ReviewSecurityMixin, BaseHTTPRequestHandler):
         server_version = "UnresolvedIPAReview/1.0"
 
         def log_message(self, fmt: str, *args: Any) -> None:
@@ -880,6 +886,7 @@ def main() -> None:
     )
     handler = build_handler(store)
     server = ThreadingHTTPServer((args.host, args.port), handler)
+    configure_review_server(server, args.allowed_origin, args.host)
 
     url = f"http://{args.host}:{args.port}/"
     print(f"Unresolved IPA review UI: {url}")

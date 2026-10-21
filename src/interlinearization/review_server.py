@@ -28,6 +28,9 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from review_security import ReviewSecurityMixin, configure_review_server, review_html
+
 SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT = SCRIPT_DIR.parent
 OUTPUT_DIR = SCRIPT_DIR / "outputs"
@@ -618,7 +621,7 @@ def apply_text_to_source_row(row: dict[str, str], text: str) -> None:
         row["token_count"] = str(len(tokenize_line(text)))
 
 
-class ReviewHandler(BaseHTTPRequestHandler):
+class ReviewHandler(ReviewSecurityMixin, BaseHTTPRequestHandler):
     server_version = "ZInterlinearReview/0.1"
     store = CorrectionStore(CORRECTIONS_PATH)
     note_store = CellNoteStore(CELL_NOTES_PATH)
@@ -701,6 +704,8 @@ class ReviewHandler(BaseHTTPRequestHandler):
             self.write_error(HTTPStatus.NOT_FOUND, "Not found")
             return
         raw = path.read_bytes()
+        if path.suffix.lower() == ".html":
+            raw = review_html(raw)
         content_type = mimetypes.guess_type(str(path))[0] or "application/octet-stream"
         if path.suffix in {".html", ".css", ".js"}:
             content_type += "; charset=utf-8"
@@ -715,14 +720,16 @@ class ReviewHandler(BaseHTTPRequestHandler):
 class ServerConfig:
     host: str
     port: int
+    allowed_origins: tuple[str, ...] = ()
 
 
 def parse_args() -> ServerConfig:
     parser = argparse.ArgumentParser(description="Run the local Zazaki interlinear review UI.")
     parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--allowed-origin", action="append", default=[], help="Explicit browser origin for a trusted remote/proxy review session; repeatable.")
     parser.add_argument("--port", type=int, default=8765)
     args = parser.parse_args()
-    return ServerConfig(host=args.host, port=args.port)
+    return ServerConfig(host=args.host, port=args.port, allowed_origins=tuple(args.allowed_origin))
 
 
 def main() -> int:
@@ -730,6 +737,7 @@ def main() -> int:
     if not UI_DIR.exists():
         raise SystemExit(f"Missing UI directory: {UI_DIR}")
     server = ThreadingHTTPServer((config.host, config.port), ReviewHandler)
+    configure_review_server(server, config.allowed_origins, config.host)
     print(f"Review UI: http://{config.host}:{config.port}/")
     print(f"Corrections: {CORRECTIONS_PATH}")
     server.serve_forever()
